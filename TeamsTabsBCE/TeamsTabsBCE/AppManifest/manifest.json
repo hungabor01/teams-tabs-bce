@@ -1,0 +1,58 @@
+﻿{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "id": "2a4c77e6-1b53-4795-9f8f-ed4ac6a8595a",
+  "version": "1.0.0",
+  "packageName": "com.hungabor01.tab",
+  "developer": {
+    "name": "hungabor01",
+    "websiteUrl": "https://terribly-merry-grizzly.ngrok-free.app",
+    "privacyUrl": "https://terribly-merry-grizzly.ngrok-free.app/privacy",
+    "termsOfUseUrl": "https://terribly-merry-grizzly.ngrok-free.app/tou",
+    "mpnId": ""
+  },
+  "name": {
+    "short": "Short name",
+    "full": "Full name"
+  },
+  "description": {
+    "short": "short description here",
+    "full": "full description here"
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "accentColor": "#D85028",
+  "configurableTabs": [],
+  "staticTabs": [
+    {
+      "entityId": "index",
+      "name": "Personal Tab static name",
+      "contentUrl": "https://terribly-merry-grizzly.ngrok-free.app/PersonalTab",
+      "websiteUrl": "https://terribly-merry-grizzly.ngrok-free.app/PersonalTab",
+      "scopes": [
+        "personal",
+        "groupChat"
+      ],
+      "context": [
+        "personalTab",
+        "privateChatTab",
+        "meetingChatTab",
+        "meetingDetailsTab",
+        "meetingSidePanel",
+        "meetingStage"
+      ]
+    }
+  ],
+  "bots": [],
+  "connectors": [],
+  "composeExtensions": [],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "https://terribly-merry-grizzly.ngrok-free.app"
+  ]
+}
