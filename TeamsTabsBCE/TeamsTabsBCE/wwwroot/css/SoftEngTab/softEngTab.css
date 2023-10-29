@@ -1,0 +1,60 @@
+﻿.tab {
+    margin: 20px;
+}
+
+h3 {
+    padding-top: 10px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+i {
+    border-left: 10px;
+}
+
+:root {
+    --succes-color: green;
+    --fail-color: red;
+    --neutral-color: lightgray;
+    --end-color: lightgray;
+    --start-color: green;
+}
+
+
+/*Task*/
+
+.tg_taskctrl {
+    cursor: pointer;
+    user-select: none;
+    margin-right: 6px;
+}
+
+.tg_task {
+    cursor: pointer;
+}
+
+.tg_taskctrl span {
+    color: white;
+    background-color: lightgray;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.tg_success :nth-child(2) {
+    background: var(--succes-color) !important;
+}
+
+.tg_success :first-child {
+    color: var(--succes-color) !important;
+}
+
+.tg_fail :last-child {
+    background: var(--fail-color) !important;
+}
+
+.tg_fail :first-child {
+    color: var(--fail-color) !important;
+}

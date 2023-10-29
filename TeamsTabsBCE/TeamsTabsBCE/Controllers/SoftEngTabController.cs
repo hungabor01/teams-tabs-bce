@@ -2,7 +2,7 @@
 
 namespace TeamsTabsBCE.Controllers
 {
-    public class PersonalTabController : Controller
+    public class SoftEngTabController : Controller
     {
         public IActionResult Index()
         {
