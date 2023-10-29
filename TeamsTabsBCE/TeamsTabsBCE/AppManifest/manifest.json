@@ -12,12 +12,12 @@
     "mpnId": ""
   },
   "name": {
-    "short": "Short name",
-    "full": "Full name"
+    "short": "Tananyagtár",
+    "full": "Tananyagtár"
   },
   "description": {
-    "short": "short description here",
-    "full": "full description here"
+    "short": "Tananyagtár",
+    "full": "Tananyagtár"
   },
   "icons": {
     "outline": "outline.png",
@@ -27,21 +27,17 @@
   "configurableTabs": [],
   "staticTabs": [
     {
-      "entityId": "index",
-      "name": "Personal Tab static name",
-      "contentUrl": "https://terribly-merry-grizzly.ngrok-free.app/PersonalTab",
-      "websiteUrl": "https://terribly-merry-grizzly.ngrok-free.app/PersonalTab",
+      "entityId": "softeng",
+      "name": "softeng",
+      "contentUrl": "https://terribly-merry-grizzly.ngrok-free.app/SoftEngTab",
+      "websiteUrl": "https://terribly-merry-grizzly.ngrok-free.app/SoftEngTab",
       "scopes": [
         "personal",
         "groupChat"
       ],
       "context": [
         "personalTab",
-        "privateChatTab",
-        "meetingChatTab",
-        "meetingDetailsTab",
-        "meetingSidePanel",
-        "meetingStage"
+        "privateChatTab"
       ]
     }
   ],
