@@ -1,8 +1,4 @@
-﻿.tab {
-    margin: 20px;
-}
-
-h3 {
+﻿h3 {
     padding-top: 10px;
 }
 
@@ -26,35 +22,35 @@ i {
 
 /*Task*/
 
-.tg_taskctrl {
+.tg-task {
+    cursor: pointer;
+}
+
+.tg-taskctrl {
     cursor: pointer;
     user-select: none;
     margin-right: 6px;
 }
 
-.tg_task {
-    cursor: pointer;
-}
-
-.tg_taskctrl span {
+.tg-taskctrl span {
     color: white;
     background-color: lightgray;
     padding-left: 4px;
     padding-right: 4px;
 }
 
-.tg_success :nth-child(2) {
+.tg-success :nth-child(2) {
     background: var(--succes-color) !important;
 }
 
-.tg_success :first-child {
+.tg-success :first-child {
     color: var(--succes-color) !important;
 }
 
-.tg_fail :last-child {
+.tg-fail :last-child {
     background: var(--fail-color) !important;
 }
 
-.tg_fail :first-child {
+.tg-fail :first-child {
     color: var(--fail-color) !important;
 }
