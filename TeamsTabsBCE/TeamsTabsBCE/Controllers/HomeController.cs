@@ -6,7 +6,16 @@ namespace TeamsTabsBCE.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.Message = "Message from HomeController.";
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Tou()
+        {
             return View();
         }
     }

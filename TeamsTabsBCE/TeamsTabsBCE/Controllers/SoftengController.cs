@@ -2,11 +2,10 @@
 
 namespace TeamsTabsBCE.Controllers
 {
-    public class SoftEngTabController : Controller
+    public class SoftengController : Controller
     {
         public IActionResult Index()
         {
-            ViewBag.Message = "Message from PersonalTabController.";
             return View();
         }
     }

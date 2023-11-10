@@ -7,40 +7,33 @@
   "developer": {
     "name": "hungabor01",
     "websiteUrl": "https://terribly-merry-grizzly.ngrok-free.app",
-    "privacyUrl": "https://terribly-merry-grizzly.ngrok-free.app/privacy",
-    "termsOfUseUrl": "https://terribly-merry-grizzly.ngrok-free.app/tou",
+    "privacyUrl": "https://terribly-merry-grizzly.ngrok-free.app/home/privacy",
+    "termsOfUseUrl": "https://terribly-merry-grizzly.ngrok-free.app/home/tou",
     "mpnId": ""
   },
   "name": {
     "short": "Tananyagtár",
-    "full": "Tananyagtár"
+    "full": "Tananyagtár (teljes név)"
   },
   "description": {
-    "short": "Tananyagtár",
-    "full": "Tananyagtár"
+    "short": "Tananyagtár (rövid leírás)",
+    "full": "Tananyagtár (teljes leírás)"
   },
   "icons": {
     "outline": "outline.png",
     "color": "color.png"
   },
   "accentColor": "#D85028",
-  "configurableTabs": [],
-  "staticTabs": [
+  "configurableTabs": [
     {
-      "entityId": "softeng",
-      "name": "softeng",
-      "contentUrl": "https://terribly-merry-grizzly.ngrok-free.app/SoftEngTab",
-      "websiteUrl": "https://terribly-merry-grizzly.ngrok-free.app/SoftEngTab",
+      "configurationUrl": "https://terribly-merry-grizzly.ngrok-free.app/configure",
       "scopes": [
-        "personal",
-        "groupChat"
-      ],
-      "context": [
-        "personalTab",
-        "privateChatTab"
+        "team",
+        "groupchat"
       ]
     }
   ],
+  "staticTabs": [],
   "bots": [],
   "connectors": [],
   "composeExtensions": [],

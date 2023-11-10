@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Configure";
+}
+
+@section Styles {
+    <link href="~/css/Configure/configure.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section Scripts {
+    <script src="~/js/Configure/configure.js" asp-append-version="true"></script>
+}
+
+<div class="page">
+
+    <h1>Beállítások</h1>
+
+    <p>Válaszd ki az oldalt, amelyiket be szeretnéd állítani ehhez a csoporthoz!</p>
+
+    <div class="dropdown mb-3">
+        <button class="btn btn-success dropdown-toggle" type="button" id="select-page" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Oldalválasztás!
+        </button>
+        <div class="dropdown-menu" aria-labelledby="select-page">
+            <span class="dropdown-item pointer" onclick="SelectPage('softeng')">softeng</span>
+        </div>
+    </div>
+
+    <p>A választott oldal: <b><span id="selected-page">Nincs oldal választva.</span></b></p>
+
+</div>
