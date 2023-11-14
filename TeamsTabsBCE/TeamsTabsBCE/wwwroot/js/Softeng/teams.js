@@ -1,4 +1,31 @@
-microsoftTeams.app.initialize();
+microsoftTeams.app.initialize().then(() => {
+    var authTokenRequest = {
+        successCallback: function (token) {
+            console.log("Success: " + token);
+
+            fetch('/softeng/GetUserEmail', {
+                method: 'get',
+                headers: {
+                    "Content-Type": "application/text",
+                    "Authorization": "Bearer " + token
+                },
+                cache: 'default'
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    reject(response.error);
+                }
+            })
+            .then((email) => {
+                console.log(email);
+            });
+        },
+        failureCallback: function (error) { console.log("Error getting token: " + error); }
+    };
+    microsoftTeams.authentication.getAuthToken(authTokenRequest);
+});
 
 function startConversation(id) {
     microsoftTeams.app.getContext().then((context) => {

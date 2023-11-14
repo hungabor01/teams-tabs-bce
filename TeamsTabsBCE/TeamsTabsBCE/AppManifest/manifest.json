@@ -42,6 +42,10 @@
     "messageTeamMembers"
   ],
   "validDomains": [
-    "https://terribly-merry-grizzly.ngrok-free.app"
-  ]
+    "terribly-merry-grizzly.ngrok-free.app"
+  ],
+  "webApplicationInfo": {
+    "id": "ef89db0d-7196-4c7f-8468-b94ecce16f63",
+    "resource": "api://terribly-merry-grizzly.ngrok-free.app/ef89db0d-7196-4c7f-8468-b94ecce16f63"
+  }
 }
