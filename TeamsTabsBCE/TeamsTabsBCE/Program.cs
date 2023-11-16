@@ -1,10 +1,16 @@
 using Microsoft.Identity.Web;
+using TeamsTabsBCE.Database.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration);
+
+builder.Services.AddEntityFrameworkSqlite()
+    .AddDbContext<BceDbContext>();
+
+builder.Services.AddDatabase();
 
 var app = builder.Build();
 
