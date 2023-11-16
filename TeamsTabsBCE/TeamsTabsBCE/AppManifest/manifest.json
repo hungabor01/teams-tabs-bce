@@ -45,7 +45,7 @@
     "terribly-merry-grizzly.ngrok-free.app"
   ],
   "webApplicationInfo": {
-    "id": "ef89db0d-7196-4c7f-8468-b94ecce16f63",
-    "resource": "api://terribly-merry-grizzly.ngrok-free.app/ef89db0d-7196-4c7f-8468-b94ecce16f63"
+    "id": "<<Azure AD client ID>>",
+    "resource": "api://terribly-merry-grizzly.ngrok-free.app/<<Azure AD client ID>>"
   }
 }
