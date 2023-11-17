@@ -9,7 +9,7 @@
 @section Scripts {
 	<script src="~/js/Softeng/collapseArrow.js" asp-append-version="true"></script>
 	<script src="~/js/Softeng/tasks.js" asp-append-version="true"></script>
-	<script src="~/js/Softeng/teams.js" asp-append-version="true"></script>
+	<script src="~/js/Softeng/conversation.js" asp-append-version="true"></script>
 }
 
 <div class="page">
@@ -37,7 +37,7 @@
 			@{
 				for (int i = 1; i <= 24; i++)
 				{
-					var id = "week1-1-" + @i ;
+					var id = "week1-list1-step" + @i ;
 					<span id="@id" class="tg-task"></span>
 					<button type="button" class="btn btn-primary m-1" onclick="startConversation('@id')">Csatlakozás a beszélgetéshez</button>
 					<br/>
@@ -66,7 +66,7 @@
 					@{
 						for (int i = 1; i <= 14; i++)
 						{
-							var id = "week2-1-" + @i ;
+							var id = "week2-list1-step" + @i ;
 							<span id="@id" class="tg-task"></span>
 							<button type="button" class="btn btn-primary m-1" onclick="startConversation('@id')">Csatlakozás a beszélgetéshez</button>
 							<br/>
@@ -86,7 +86,7 @@
 					@{
 						for (int i = 1; i <= 16; i++)
 						{
-							var id = "week2-2-" + @i ;
+							var id = "week2-list2-step" + @i ;
 							<span id="@id" class="tg-task"></span>
 							<button type="button" class="btn btn-primary m-1" onclick="startConversation('@id')">Csatlakozás a beszélgetéshez</button>
 							<br/>

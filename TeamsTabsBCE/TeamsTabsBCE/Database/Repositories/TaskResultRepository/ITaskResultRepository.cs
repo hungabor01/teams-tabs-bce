@@ -1,9 +1,11 @@
 ﻿using TeamsTabsBCE.Database.Core.Entities;
-using TeamsTabsBCE.Database.Repositories.Repository;
 
 namespace TeamsTabsBCE.Database.Repositories.TaskResultRepository
 {
-    public interface ITaskResultRepository : IRepository<TaskResult>
+    public interface ITaskResultRepository
     {
+        public Task<IList<TaskResult>> GetTaskResultsForUser(string userEmail);
+
+        public Task<TaskResult> StoreTaskResult(TaskResult taskResult);
     }
 }
