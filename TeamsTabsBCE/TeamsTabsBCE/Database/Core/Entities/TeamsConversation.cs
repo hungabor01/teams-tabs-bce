@@ -1,6 +1,6 @@
 ﻿namespace TeamsTabsBCE.Database.Core.Entities
 {
-    public class TeamsConversation
+    public class TeamsConversation : IEntity
     {
         public int Id { get; set; }
         public string? ConversationId { get; set; }

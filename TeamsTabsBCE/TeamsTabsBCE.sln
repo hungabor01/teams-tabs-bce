@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamsTabsBCE", "TeamsTabsBCE\TeamsTabsBCE.csproj", "{7E51F80E-FA80-4163-A597-4AD574987570}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E0124037-736A-4ACB-A554-A6B22E5B9C12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamsTabsBCE.Tests", "TeamsTabsBCE.Tests\TeamsTabsBCE.Tests.csproj", "{2CB2C22B-4340-4798-8BD6-EE654AA33E27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{7E51F80E-FA80-4163-A597-4AD574987570}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E51F80E-FA80-4163-A597-4AD574987570}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E51F80E-FA80-4163-A597-4AD574987570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CB2C22B-4340-4798-8BD6-EE654AA33E27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB2C22B-4340-4798-8BD6-EE654AA33E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB2C22B-4340-4798-8BD6-EE654AA33E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB2C22B-4340-4798-8BD6-EE654AA33E27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2CB2C22B-4340-4798-8BD6-EE654AA33E27} = {E0124037-736A-4ACB-A554-A6B22E5B9C12}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56B37C3E-6EB4-4616-937F-1E58059D2D86}

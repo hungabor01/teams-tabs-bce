@@ -2,7 +2,7 @@
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public static class StartupExtensions
+    public static class DatabaseStartupExtensions
     {
         public static void AddDatabase(this IServiceCollection services)
         {

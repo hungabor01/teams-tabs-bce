@@ -10,6 +10,8 @@ builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration)
 builder.Services.AddEntityFrameworkSqlite()
     .AddDbContext<BceDbContext>();
 
+builder.Services.AddBusinessLogic();
+builder.Services.AddDatabaseAccess();
 builder.Services.AddDatabase();
 
 var app = builder.Build();
