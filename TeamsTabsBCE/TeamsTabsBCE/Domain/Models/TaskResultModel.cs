@@ -32,14 +32,14 @@ namespace TeamsTabsBCE.Domain.Models
             var dataParts = data.Split(' ');
             if (dataParts.Length != 2)
             {
-                throw new ArgumentException($"Invalid data: {data}.");
+                throw new ArgumentException($"Invalid data: {data} in {nameof(TaskResultModel)}.");
             }
 
             TaskIdentifierModel = new TaskIdentifierModel(dataParts[0]);
 
             if (!int.TryParse(dataParts[1], out var result))
             {
-                throw new ArgumentException($"Invalid result: {dataParts[1]}.");
+                throw new ArgumentException($"Invalid result: {dataParts[1]} in {nameof(TaskResultModel)}.");
             }
             Result = result;
 
@@ -50,7 +50,7 @@ namespace TeamsTabsBCE.Domain.Models
         {
             if (!_validResults.Contains(Result))
             {
-                throw new ArgumentException($"Result should be -1 or 0 or 1, but it is {Result}");
+                throw new ArgumentException($"{nameof(Result)} should be -1 or 0 or 1, but it is {Result} in {nameof(TaskResultModel)}.");
             }
         }
     }

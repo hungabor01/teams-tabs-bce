@@ -8,13 +8,13 @@ function SelectPage(pageName) {
             contentUrl: `${window.location.origin}/${pageName}`,
             entityId: pageName,
             suggestedDisplayName: pageName,
-            removeUrl: ""
+            removeUrl: ''
         });
 
         saveEvent.notifySuccess();
     });    
 
-    $("#selected-page").text(pageName);
+    $('#selected-page').text(pageName);
 
     microsoftTeams.pages.config.setValidityState(true);
 }

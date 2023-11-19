@@ -38,8 +38,8 @@
 				for (int i = 1; i <= 24; i++)
 				{
 					var id = "week1-list1-step" + @i ;
-					<span id="@id" class="tg-task"></span>
-					<button type="button" class="btn btn-primary m-1" onclick="startConversation('@id')">Csatlakozás a beszélgetéshez</button>
+					<span id="@id" class="tg-task"></span>					
+					<span class="pointer" onclick="startConversation('@id', 'In-memory adatbázis')"><i class="fa-solid fa-comments"></i></span>
 					<br/>
 				}
 			}
@@ -68,7 +68,7 @@
 						{
 							var id = "week2-list1-step" + @i ;
 							<span id="@id" class="tg-task"></span>
-							<button type="button" class="btn btn-primary m-1" onclick="startConversation('@id')">Csatlakozás a beszélgetéshez</button>
+							<span onclick="startConversation('@id', 'Távoli SQL adatbázis elérése C# alkalmazásból')"><i class="fa-solid fa-comments"></i></span>
 							<br/>
 						}
 					}
@@ -88,7 +88,7 @@
 						{
 							var id = "week2-list2-step" + @i ;
 							<span id="@id" class="tg-task"></span>
-							<button type="button" class="btn btn-primary m-1" onclick="startConversation('@id')">Csatlakozás a beszélgetéshez</button>
+							<span onclick="startConversation('@id', 'Lokális SQL adatbázis használata')"><i class="fa-solid fa-comments"></i></span>
 							<br/>
 						}
 					}

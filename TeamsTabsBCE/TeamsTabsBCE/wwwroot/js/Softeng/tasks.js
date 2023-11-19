@@ -2,27 +2,26 @@
     microsoftTeams.app.initialize().then(() => {
         var authTokenRequest = {
             successCallback: function (token) {
-                console.log(token);
                 fetch('/softeng/GetTaskResults', {
                     method: 'get',
                     headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + token
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token
                     },
                     cache: 'default'
                 })
-                    .then((response) => {
-                        if (response.ok) {
-                            return response.json();
-                        } else {
-                            reject(response.error);
-                        }
-                    })
-                    .then((taskResults) => {
-                        createTasks(taskResults);
-                    });
+                .then((response) => {
+                    if (response.status === 200) {
+                        return response.json();
+                    } else {
+                        console.log('Getting task results has failed: ' + response.status + ' ' + response.error);
+                    }
+                })
+                .then((taskResults) => {
+                    createTasks(taskResults);
+                });
             },
-            failureCallback: function (error) { console.log("Error getting token: " + error); }
+            failureCallback: function (error) { console.log('Error getting token: ' + error); }
         };
         microsoftTeams.authentication.getAuthToken(authTokenRequest);
     });
@@ -39,8 +38,8 @@ function createTasks(taskResults) {
         tasks[i].innerText = '';
 
         var neutral = document.createElement('span');
-        var index = tasks[i].id.split('-')[2];
-        neutral.innerText = `#${index}`;
+        var step = extractTaskNumber('step', tasks[i].id);
+        neutral.innerText = `#${step}`;
         tasks[i].appendChild(neutral);
 
         var success = document.createElement('span');
@@ -75,12 +74,12 @@ function setTaskInitialState(taskResults, task) {
 }
 
 function taskClicked(e) {
-    let task = e.target;
+    var task = e.target;
     if (!task.id) {
         task = task.parentNode;
     }
 
-    let result;
+    var result;
     if (task.classList.contains('tg-neutral')) {
         task.classList.remove('tg-neutral');
         task.classList.add('tg-success');
@@ -104,21 +103,21 @@ function postResult(taskId, result) {
             fetch('/softeng/StoreTaskResult', {
                 method: 'post',
                 headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + token
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
                 },
                 cache: 'default',
-                body: JSON.stringify(taskId + " " + result)
+                body: JSON.stringify(taskId + ' ' + result)
             })
             .then((response) => {
                 if (response.ok) {
-                    console.log("Result was sent successfully.");
+                    console.log('Result was sent successfully.');
                 } else {
-                    console.log(response.error);
+                    console.log('Result was sent unsuccessfully: ' + response.error);
                 }
             });
         },
-        failureCallback: function (error) { console.log("Error getting token: " + error); }
+        failureCallback: function (error) { console.log('Error getting token: ' + error); }
     };
     microsoftTeams.authentication.getAuthToken(authTokenRequest);
 }

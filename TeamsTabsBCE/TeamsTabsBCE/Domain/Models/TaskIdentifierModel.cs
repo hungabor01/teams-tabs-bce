@@ -53,7 +53,7 @@ namespace TeamsTabsBCE.Domain.Models
             var match = regex.Match(value);
             if (!match.Success)
             {
-                throw new ArgumentException($"Invalid task value: {value}.");
+                throw new ArgumentException($"Invalid task value: {value} in {nameof(TaskIdentifierModel)}.");
             }
 
             int week = int.Parse(match.Groups[1].Value);
@@ -67,17 +67,17 @@ namespace TeamsTabsBCE.Domain.Models
         {
             if (Week <= 0)
             {
-                throw new ArgumentException($"{nameof(Week)} should be greater than 0, but it is {Week}");
+                throw new ArgumentException($"{nameof(Week)} should be greater than 0, but it is {Week} in {nameof(TaskIdentifierModel)}.");
             }
 
             if (List <= 0)
             {
-                throw new ArgumentException($"{nameof(List)} should be greater than 0, but it is {List}");
+                throw new ArgumentException($"{nameof(List)} should be greater than 0, but it is {List} in {nameof(TaskIdentifierModel)}.");
             }
 
             if (Step <= 0)
             {
-                throw new ArgumentException($"{nameof(Step)} should be greater than 0, but it is {Step}");
+                throw new ArgumentException($"{nameof(Step)} should be greater than 0, but it is {Step} in {nameof(TaskIdentifierModel)}.");
             }
         }
     }
