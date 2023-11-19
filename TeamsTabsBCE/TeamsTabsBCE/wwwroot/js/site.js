@@ -1,4 +1,9 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function extractTaskNumber(category, taskValue) {
+    var pattern = new RegExp(`${category}(\\d+)`);
+    var match = taskValue.match(pattern);
+    if (match) {
+        return match[1];
+    }
 
-// Write your JavaScript code.
+    return null;
+}

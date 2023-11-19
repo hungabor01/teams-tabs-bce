@@ -34,6 +34,11 @@ namespace TeamsTabsBCE.Tests.Domain.Models
         [InlineData("week1-list2-step3 1,2")]
         [InlineData("week1-list2-step3 2")]
         [InlineData("week1-list2-step3 -2")]
+        [InlineData("1 week1-list2-step3")]
+        [InlineData("week1-list2-step3:1")]
+        [InlineData("week1-list2-step3-1")]
+        [InlineData("week1-list2-step3/1")]
+        [InlineData("week1-list2-step3  1")]
         public void Constructor_InvalidData_ThrowArgumentException(string data)
         {
             Assert.Throws<ArgumentException>(() => new TaskResultModel("userEmail", data));
@@ -43,7 +48,7 @@ namespace TeamsTabsBCE.Tests.Domain.Models
         [InlineData("week1-list2-step3 1", 1)]
         [InlineData("week1-list2-step3 0", 0)]
         [InlineData("week1-list2-step3 -1", -1)]
-        public void Constructor_InvalidData_ReturnInstance(string data, int result)
+        public void Constructor_ValidData_ReturnInstance(string data, int result)
         {
             var model = new TaskResultModel("userEmail", data);
 

@@ -3,13 +3,15 @@ using TeamsTabsBCE.DatabaseAccess.Mappers.TaskResultMapper;
 using TeamsTabsBCE.Domain.Models;
 using TeamsTabsBCE.Shared.ExtensionMethods;
 
-namespace TeamsTabsBCE.DatabaseAccess.RepositoryHandlers.TaskResultRepositoryHandler
+namespace TeamsTabsBCE.DatabaseAccess.RepositoryHandlers
 {
     internal class TaskResultRepositoryHandler : RepositoryHandlerBase, ITaskResultRepositoryHandler
     {
         private readonly ITaskResultMapper _taskResultMapper;
 
-        public TaskResultRepositoryHandler(IServiceProvider serviceProvider, ITaskResultMapper taskResultMapper)
+        public TaskResultRepositoryHandler(
+            IServiceProvider serviceProvider,
+            ITaskResultMapper taskResultMapper)
             : base(serviceProvider)
         {
             _taskResultMapper = taskResultMapper;
