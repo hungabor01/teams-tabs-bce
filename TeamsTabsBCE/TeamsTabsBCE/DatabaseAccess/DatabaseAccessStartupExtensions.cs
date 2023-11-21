@@ -10,6 +10,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static void AddDatabaseAccess(this IServiceCollection services)
         {
+            services.AddScoped<ITaskIdentifierRepositoryHandler, TaskIdentifierRepositoryHandler>();
             services.AddScoped<ITaskResultRepositoryHandler, TaskResultRepositoryHandler>();
             services.AddScoped<ITeamsConversationRepositoryHandler, TeamsConversationRepositoryHandler>();
 
