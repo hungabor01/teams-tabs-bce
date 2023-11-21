@@ -1,4 +1,5 @@
-﻿using TeamsTabsBCE.Database.Core;
+﻿using Microsoft.EntityFrameworkCore;
+using TeamsTabsBCE.Database.Core;
 using TeamsTabsBCE.Database.Core.Entities;
 using TeamsTabsBCE.Database.Repositories.Repository;
 
@@ -17,6 +18,14 @@ namespace TeamsTabsBCE.Database.Repositories.TaskIdentifierRepository
                                                                       && ti.Step == taskIdentifier.Step);
             return taskIdentifierInDb
                 ?? await AddAsync(taskIdentifier);
+        }
+
+        public async Task<IList<TaskIdentifier>> GetAllTaskIdentifiers()
+        {
+            return await Context.Set<TaskIdentifier>()
+                .Include(ti => ti.TeamsConversation)
+                .Include(ti => ti.TaskResults)
+                .ToListAsync();
         }
     }
 }

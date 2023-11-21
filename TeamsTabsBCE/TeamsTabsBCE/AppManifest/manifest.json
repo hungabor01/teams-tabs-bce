@@ -33,7 +33,14 @@
       ]
     }
   ],
-  "staticTabs": [],
+  "staticTabs": [
+    {
+      "entityId": "softeng - Dashboard",
+      "name": "softeng - Dashboard",
+      "contentUrl": "https://terribly-merry-grizzly.ngrok-free.app/softengDashboard",
+      "scopes": [ "personal" ]
+    } 
+  ],
   "bots": [],
   "connectors": [],
   "composeExtensions": [],
