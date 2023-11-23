@@ -1,5 +1,6 @@
 using Microsoft.Identity.Web;
 using TeamsTabsBCE.Database.Core;
+using TeamsTabsBCE.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration)
 
 builder.Services.AddEntityFrameworkSqlite()
     .AddDbContext<BceDbContext>();
+
+builder.Services.AddSignalR();
 
 builder.Services.AddBusinessLogic();
 builder.Services.AddServices();
@@ -21,6 +24,8 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
+
+app.MapHub<SoftengDashboardHub>(SoftengDashboardHub.Url);
 
 app.UseRouting();
 
