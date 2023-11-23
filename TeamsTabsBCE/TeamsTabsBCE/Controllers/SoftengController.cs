@@ -1,16 +1,22 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using TeamsTabsBCE.BusinessLogic.Interfaces.ControllerHandlers;
 using TeamsTabsBCE.Domain.Models;
+using TeamsTabsBCE.Hubs;
 
 namespace TeamsTabsBCE.Controllers
 {
     public class SoftengController : Controller
     {
+        private readonly IHubContext<SoftengDashboardHub> _softengDashboardHub;
         private readonly ISoftengControllerHandler _controllerHandler;
 
-        public SoftengController(ISoftengControllerHandler softengControllerHandler)
+        public SoftengController(
+            IHubContext<SoftengDashboardHub> softengDashboardHub,
+            ISoftengControllerHandler softengControllerHandler)
         {
+            _softengDashboardHub = softengDashboardHub;
             _controllerHandler = softengControllerHandler;
         }
 
@@ -51,6 +57,9 @@ namespace TeamsTabsBCE.Controllers
 
             var taskResultModel = new TaskResultModel(userEmail, data);
             await _controllerHandler.StoreTaskResult(taskResultModel);
+
+            await _softengDashboardHub.Clients.All.SendAsync(SoftengDashboardHub.RefreshCommand);
+
             return Ok();
         }
 
@@ -80,6 +89,9 @@ namespace TeamsTabsBCE.Controllers
 
             var teamsConversationModel = new TeamsConversationModel(data);
             await _controllerHandler.StoreTeamsConversation(teamsConversationModel);
+
+            await _softengDashboardHub.Clients.All.SendAsync(SoftengDashboardHub.RefreshCommand);
+
             return Ok();
         }
 
