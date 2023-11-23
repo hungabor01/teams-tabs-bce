@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TeamsTabsBCE.BusinessLogic.Interfaces.ControllerHandlers;
 
 namespace TeamsTabsBCE.Controllers
@@ -16,6 +17,14 @@ namespace TeamsTabsBCE.Controllers
         {
             var model = await _controllerHandler.GetSoftengDashboardViewModel();
             return View(model);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> GetSettings()
+        {
+            var settings = await _controllerHandler.GetSettings();
+            return Ok(settings);
         }
     }
 }

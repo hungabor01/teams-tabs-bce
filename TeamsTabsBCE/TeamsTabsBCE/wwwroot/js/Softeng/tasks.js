@@ -1,4 +1,6 @@
-﻿function getTaskResults() {
+﻿getTaskResults();
+
+function getTaskResults() {
     microsoftTeams.app.initialize().then(() => {
         var authTokenRequest = {
             successCallback: function (token) {
@@ -121,5 +123,3 @@ function postResult(taskId, result) {
     };
     microsoftTeams.authentication.getAuthToken(authTokenRequest);
 }
-
-getTaskResults();

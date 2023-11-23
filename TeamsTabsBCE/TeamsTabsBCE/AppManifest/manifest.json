@@ -1,7 +1,7 @@
 ﻿{
   "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
   "manifestVersion": "1.16",
-  "id": "2a4c77e6-1b53-4795-9f8f-ed4ac6a8595a",
+  "id": "95f3910f-bdc3-4283-a6b8-833293280368",
   "version": "1.0.0",
   "packageName": "com.hungabor01.tab",
   "developer": {
@@ -39,7 +39,7 @@
       "name": "softeng - Dashboard",
       "contentUrl": "https://terribly-merry-grizzly.ngrok-free.app/softengDashboard",
       "scopes": [ "personal" ]
-    } 
+    }
   ],
   "bots": [],
   "connectors": [],

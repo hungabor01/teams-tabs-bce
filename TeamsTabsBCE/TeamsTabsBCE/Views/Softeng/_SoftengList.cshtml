@@ -1,0 +1,27 @@
+﻿@using TeamsTabsBCE.Domain.ViewModels.Softeng
+
+@model List
+
+<li>
+	<p>
+		@Model.Description
+	</p>
+	<p>​
+		@Model.Title
+		<a data-bs-toggle="collapse" href="#@(Model.GetListId())" aria-expanded="false" aria-controls="@(Model.GetListId())">
+			@Model.Link
+			<i class="fa-solid fa-circle-arrow-down"></i>
+		</a>		
+	</p>
+	<div id="@(Model.GetListId())" class="collapse">
+		@{
+			for (int i = 1; i <= Model.MaxTaskIdentifier.Step; i++)
+			{
+				var id = Model.GetBaseId() + @i;
+				<span id="@id" class="tg-task"></span>					
+				<span class="pointer" onclick="startConversation('@id', '@(Model.Link)')"><i class="fa-solid fa-comments"></i></span>
+				<br/>
+			}
+		}
+	</div>
+</li>

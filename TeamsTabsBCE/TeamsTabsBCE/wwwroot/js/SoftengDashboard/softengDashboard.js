@@ -1,5 +1,34 @@
-function deeplinkConversation(conversationId) {
-    microsoftTeams.app.openLink(`https://teams.microsoft.com/l/message/19:ynb7dTln_Fs7uU3OPXjK7vPWbrM4RyCCxmtNihK3JNk1@thread.tacv2/${conversationId}?tenantId=0a762334-919f-4831-b0f3-da9eebf91cd4&groupId=d4da6b79-f72f-4501-a96b-1b9cdbba5fc1&parentMessageId=${conversationId}&teamName=Szoftver%20Fejleszt%C3%A9s%202&channelName=General&createdTime=${conversationId}`);
-}
-
 microsoftTeams.app.initialize();
+
+function deeplinkConversation(conversationId) {
+    var authTokenRequest = {
+        successCallback: function (token) {
+            fetch('/softengDashboard/GetSettings', {
+                method: 'get',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                cache: 'default'
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.json();
+                } else if (response.status === 204) {
+                    createConversation(taskId, listName);
+                }
+                else {
+                    console.log('Getting conversation id has failed: ' + response.status + ' ' + response.error);
+                }
+            })
+            .then((settings) => {
+                microsoftTeams.app.openLink(`https://teams.microsoft.com/l/message/${settings.channelId}/${conversationId}?tenantId=${settings.tenantId}&groupId=${settings.groupId}&parentMessageId=${conversationId}&teamName=${settings.groupName}&channelName=General&createdTime=${conversationId}`);
+            });
+        },
+        failureCallback: function (error) { console.log('Error getting token: ' + error); }
+    };
+    microsoftTeams.authentication.getAuthToken(authTokenRequest);
+
+
+    
+}
