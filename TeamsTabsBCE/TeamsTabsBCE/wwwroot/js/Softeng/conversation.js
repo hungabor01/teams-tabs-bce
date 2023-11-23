@@ -36,13 +36,13 @@ function createConversation(taskId, listName) {
                 'entityId': context.page.id,
                 'channelId': context.channel.id,
                 'title': getConversationTitle(taskId, listName),
-                'onStartConversation': (conversationResponse) => onStartConversation(taskId, conversationResponse)
+                'onStartConversation': (conversationResponse) => onStartConversation(conversationResponse, taskId)
             }
         );
     });
 }
 
-function onStartConversation(taskId, conversationResponse) {
+function onStartConversation(conversationResponse, taskId) {
     var authTokenRequest = {
         successCallback: function (token) {
             fetch('/softeng/StoreConversation', {
@@ -75,7 +75,7 @@ function continueConversation(taskId, listName, conversationId) {
                 'entityId': context.page.id,
                 'channelId': context.channel.id,
                 'title': getConversationTitle(taskId, listName),
-                'conversationId': conversationId
+                'conversationId': conversationId.toString()
             }
         );
     });
@@ -84,6 +84,7 @@ function continueConversation(taskId, listName, conversationId) {
 function getConversationTitle(taskId, listName) {
     var week = extractTaskNumber('week', taskId);
     var step = extractTaskNumber('step', taskId);
-    
-    return `${week}. hét: ${listName}/${step}`;
+
+    var e = String.fromCharCode(parseInt('00e9', 16));
+    return `${week}. h${e}t: ${listName}/${step}`;
 }

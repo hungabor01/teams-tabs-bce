@@ -10,6 +10,7 @@ namespace TeamsTabsBCE.Database.Core
         {
         }
 
+        public DbSet<Settings> Settings { get; set; }
         public DbSet<TaskIdentifier> TaskIdentifiers { get; set; }
         public DbSet<TaskResult> TaskResult { get; set; }
         public DbSet<TeamsConversation> TeamsConversation { get; set; }
@@ -23,6 +24,7 @@ namespace TeamsTabsBCE.Database.Core
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.ApplyConfiguration(new SettingsConfiguration());
             modelBuilder.ApplyConfiguration(new TaskIdentifierConfiguration());
             modelBuilder.ApplyConfiguration(new TaskResultConfiguration());
             modelBuilder.ApplyConfiguration(new TeamsConversationConfiguration());

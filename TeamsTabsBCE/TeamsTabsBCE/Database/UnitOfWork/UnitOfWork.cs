@@ -1,4 +1,5 @@
 ﻿using TeamsTabsBCE.Database.Core;
+using TeamsTabsBCE.Database.Repositories.SettingsRepository;
 using TeamsTabsBCE.Database.Repositories.TaskIdentifierRepository;
 using TeamsTabsBCE.Database.Repositories.TaskResultRepository;
 using TeamsTabsBCE.Database.Repositories.TeamsConversationRepository;
@@ -9,6 +10,7 @@ namespace TeamsTabsBCE.Database.UnitOfWork
     {
         private readonly BceDbContext _context;
 
+        public ISettingsRepository SettingsRepository { get; }
         public ITaskIdentifierRepository TaskIdentifierRepository { get; }
         public ITaskResultRepository TaskResultRepository { get; }
         public ITeamsConversationRepository TeamsConversationRepository { get; }
@@ -17,6 +19,7 @@ namespace TeamsTabsBCE.Database.UnitOfWork
         {
             _context = context;
 
+            SettingsRepository = new SettingsRepository(_context);
             TaskIdentifierRepository = new TaskIdentifierRepository(_context);
             TaskResultRepository = new TaskResultRepository(_context);
             TeamsConversationRepository = new TeamsConversationRepository(_context);

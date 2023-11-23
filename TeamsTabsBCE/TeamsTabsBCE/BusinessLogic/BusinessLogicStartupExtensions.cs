@@ -7,6 +7,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static void AddBusinessLogic(this IServiceCollection services)
         {
+            services.AddScoped<IConfigureControllerHandler, ConfigureControllerHandler>();
             services.AddScoped<ISoftengControllerHandler, SoftengControllerHandler>();
             services.AddScoped<ISoftengDashboardControllerHandler, SoftengDashboardControllerHandler>();
         }

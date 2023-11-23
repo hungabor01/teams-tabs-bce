@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TeamsTabsBCE.BusinessLogic.Interfaces.ControllerHandlers;
 using TeamsTabsBCE.Domain.Models;
-using TeamsTabsBCE.Domain.ViewModels;
 
 namespace TeamsTabsBCE.Controllers
 {
@@ -17,7 +16,7 @@ namespace TeamsTabsBCE.Controllers
 
         public IActionResult Index()
         {
-            var model = new TaskIdentifierMaximums();
+            var model = _controllerHandler.GetViewModel();
             return base.View(model);
         }
 

@@ -1,6 +1,6 @@
-﻿@using TeamsTabsBCE.Domain.ViewModels
+﻿@using TeamsTabsBCE.Domain.ViewModels.Softeng
 
-@model TaskIdentifierMaximums
+@model SoftengViewModel
 
 @{
 	ViewData["Title"] = "Softeng";
@@ -8,6 +8,7 @@
 
 @section Styles {
 	<link href="~/css/Softeng/softeng.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/css/Softeng/tasks.css" rel="stylesheet" asp-append-version="true" />
 }
 
 @section Scripts {
@@ -18,96 +19,11 @@
 
 <div class="page">
 
-	<h1>Software Engineering (2023/2024/1)</h1>
+	<h1>@Model.Title</h1>
 
-	<h3>
-		<a data-bs-toggle="collapse" href="#week1" aria-expanded="false" aria-controls="week1">
-			1. hét
-			<i class="fa-solid fa-circle-arrow-down"></i>
-		</a>		
-	</h3>	
-	<div id="week1" class="collapse">
-		<p>
-			In memory adatbázisok, adatok mentése fájlba illetve visszatöltése fájlból. Adatkötött vezérlők használata
-		</p>
-		<p>​
-			Gyakorlati feladatsor:
-			<a data-bs-toggle="collapse" href="#week1-list1" aria-expanded="false" aria-controls="week1-list1">
-				In-memory adatbázis
-				<i class="fa-solid fa-circle-arrow-down"></i>
-			</a>		
-		</p>
-		<div id="week1-list1" class="collapse">
-			@{
-				var taskIdentifier11 = Model.Maximums.SingleOrDefault(ti => ti.Week == 1 && ti.List == 1);
-				var max11 = taskIdentifier11?.Step ?? 0;
-				var idBase11 = taskIdentifier11?.Value.Substring(0, taskIdentifier11.Value.Length - max11.ToString().Length);
-				for (int i = 1; i <= max11; i++)
-				{
-					var id = idBase11 + @i ;
-					<span id="@id" class="tg-task"></span>					
-					<span class="pointer" onclick="startConversation('@id', 'In-memory adatbázis')"><i class="fa-solid fa-comments"></i></span>
-					<br/>
-				}
-			}
-		</div>
-	</div>
-
-	<h3>
-		<a data-bs-toggle="collapse" href="#week2" aria-expanded="false" aria-controls="week2">
-			2. hét
-			<i class="fa-solid fa-circle-arrow-down"></i>
-		</a>		
-	</h3>	
-	<div id="week2" class="collapse">
-		<ul>
-			<li>
-				<p>
-					2a. gyakorlati feladatsor:
-					<a data-bs-toggle="collapse" href="#week2-list1" aria-expanded="false" aria-controls="week2-list1">
-						Távoli SQL adatbázis elérése C# alkalmazásból
-						<i class="fa-solid fa-circle-arrow-down"></i>
-					</a>
-				</p>
-				<div id="week2-list1" class="collapse">
-					@{
-						var taskIdentifier21 = Model.Maximums.SingleOrDefault(ti => ti.Week == 2 && ti.List == 1);
-						var max21 = taskIdentifier21?.Step ?? 0;
-						var idBase21 = taskIdentifier21?.Value.Substring(0, taskIdentifier21.Value.Length - max21.ToString().Length);
-						for (int i = 1; i <= max21; i++)
-						{
-							var id = idBase21 + @i ;
-							<span id="@id" class="tg-task"></span>
-							<span onclick="startConversation('@id', 'Távoli SQL adatbázis elérése C# alkalmazásból')"><i class="fa-solid fa-comments"></i></span>
-							<br/>
-						}
-					}
-				</div>
-			</li>
-			<li>
-				<p>
-					2b. gyakorlati feladatsor:
-					<a data-bs-toggle="collapse" href="#week2-list2" aria-expanded="false" aria-controls="week2-list2">
-						Lokális SQL adatbázis használata
-						<i class="fa-solid fa-circle-arrow-down"></i>
-					</a>
-				</p>
-				<div id="week2-list2" class="collapse">
-					@{
-						var taskIdentifier22 = Model.Maximums.SingleOrDefault(ti => ti.Week == 2 && ti.List == 2);
-						var max22 = taskIdentifier22?.Step ?? 0;
-						var idBase22 = taskIdentifier22?.Value.Substring(0, taskIdentifier22.Value.Length - max22.ToString().Length);
-						for (int i = 1; i <= max22; i++)
-						{
-							var id = idBase22 + @i ;
-							<span id="@id" class="tg-task"></span>
-							<span onclick="startConversation('@id', 'Lokális SQL adatbázis használata')"><i class="fa-solid fa-comments"></i></span>
-							<br/>
-						}
-					}
-				</div>
-			</li>
-		</ul>		
-	</div>
+	@foreach (var week in Model.Weeks)
+	{
+		@(await Html.PartialAsync("_SoftengWeek", week))
+	}
 
 </div>

@@ -1,0 +1,108 @@
+﻿@using TeamsTabsBCE.Domain.Models;
+@using TeamsTabsBCE.Domain.ViewModels.SoftengDashboard
+
+@model DashboardList
+
+<li>
+	<p>
+		@Model.Description
+	</p>
+	<p>​
+		@Model.Title
+		<a data-bs-toggle="collapse" href="#@(Model.GetListId())" aria-expanded="false" aria-controls="@(Model.GetListId())">
+			@Model.Link
+			<i class="fa-solid fa-circle-arrow-down"></i>
+		</a>		
+	</p>
+	<div id="@(Model.GetListId())" class="collapse">
+		@{
+			for (int i = 1; i <= Model.MaxTaskIdentifier.Step; i++)
+			{
+				var taskIdentifier = Model.FullTaskIdentifierModels.SingleOrDefault(fti => fti.Step == i);
+
+				<div class="table-responsive">
+					<table class="table table-sm table-dark table-bordered m-0">						
+						@{
+							RenderHeader(taskIdentifier);
+						}
+						<tbody>
+							<tr>
+								@{ RenderTaskNumberCell(i, taskIdentifier); }
+								@{ RenderResults(taskIdentifier); }
+							</tr>							
+						</tbody>
+					</table>
+				</div>
+			}
+		}
+	</div>
+</li>
+
+@{
+	void RenderHeader(FullTaskIdentifierModel? taskIdentifier)
+	{
+		if (taskIdentifier != null)
+		{
+			<thead>
+				<tr>
+					<th scope="col" class="col-md-1"></th>
+					@{
+						var userEmails = taskIdentifier.TaskResultModels.Select(tr => tr.UserEmail.Substring(0, tr.UserEmail.IndexOf('@')));
+						foreach (var userEmail in userEmails)
+						{
+							<th scope="col">@userEmail</th>
+						}
+					}
+				</tr>
+			</thead>			
+		}		
+	}
+}
+
+@{
+	void RenderTaskNumberCell(int index, FullTaskIdentifierModel? taskIdentifier)
+	{
+		if (taskIdentifier == null)
+		{
+			<th scope="row" class="col-md-1">@index</th>
+		}
+		else
+		{
+			<th scope="row" class="col-md-1">
+				@index 
+				<span class="pointer" onclick="deeplinkConversation('@(taskIdentifier.TeamsConversationModel?.ConversationId)')">
+					<i class="fa-solid fa-comments"></i>
+				</span>
+			</th>
+		}		
+	}
+}
+
+@{
+	void RenderResults(FullTaskIdentifierModel? taskIdentifier)
+	{
+		if (taskIdentifier == null)
+		{
+			<td>Nincs még adat.</td>
+		}
+		else
+		{
+			var results = taskIdentifier.TaskResultModels.Select(tr => tr.Result);
+			foreach (var result in results)
+			{
+				if (result == 1)
+				{													
+					<td class="bg-success">@result</td>
+				}
+				else if (result == -1)
+				{													
+					<td class="bg-danger">@result</td>
+				}
+				else
+				{													
+					<td>@result</td>
+				}
+			}
+		}		
+	}
+}

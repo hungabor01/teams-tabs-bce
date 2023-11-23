@@ -11,6 +11,7 @@ builder.Services.AddEntityFrameworkSqlite()
     .AddDbContext<BceDbContext>();
 
 builder.Services.AddBusinessLogic();
+builder.Services.AddServices();
 builder.Services.AddDatabaseAccess();
 builder.Services.AddDatabase();
 
