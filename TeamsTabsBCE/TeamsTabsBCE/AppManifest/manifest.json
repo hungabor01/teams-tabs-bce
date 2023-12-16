@@ -1,0 +1,58 @@
+﻿{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "id": "95f3910f-bdc3-4283-a6b8-833293280368",
+  "version": "1.0.0",
+  "packageName": "com.hungabor01.tab",
+  "developer": {
+    "name": "hungabor01",
+    "websiteUrl": "https://terribly-merry-grizzly.ngrok-free.app",
+    "privacyUrl": "https://terribly-merry-grizzly.ngrok-free.app/home/privacy",
+    "termsOfUseUrl": "https://terribly-merry-grizzly.ngrok-free.app/home/tou",
+    "mpnId": ""
+  },
+  "name": {
+    "short": "Tananyagtár",
+    "full": "Tananyagtár (teljes név)"
+  },
+  "description": {
+    "short": "Tananyagtár (rövid leírás)",
+    "full": "Tananyagtár (teljes leírás)"
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "accentColor": "#D85028",
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://terribly-merry-grizzly.ngrok-free.app/configure",
+      "scopes": [
+        "team",
+        "groupchat"
+      ]
+    }
+  ],
+  "staticTabs": [
+    {
+      "entityId": "softeng - Dashboard",
+      "name": "softeng - Dashboard",
+      "contentUrl": "https://terribly-merry-grizzly.ngrok-free.app/softengDashboard",
+      "scopes": [ "personal" ]
+    }
+  ],
+  "bots": [],
+  "connectors": [],
+  "composeExtensions": [],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "terribly-merry-grizzly.ngrok-free.app"
+  ],
+  "webApplicationInfo": {
+    "id": "<<Azure AD client ID>>",
+    "resource": "api://terribly-merry-grizzly.ngrok-free.app/<<Azure AD client ID>>"
+  }
+}

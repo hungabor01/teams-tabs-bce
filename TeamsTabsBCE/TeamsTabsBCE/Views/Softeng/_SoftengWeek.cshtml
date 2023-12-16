@@ -1,0 +1,18 @@
+﻿@using TeamsTabsBCE.Domain.ViewModels.Softeng
+
+@model Week
+
+<h3>
+	<a data-bs-toggle="collapse" href="#week@(Model.Number)" aria-expanded="false" aria-controls="week@(Model.Number)">
+		@(Model.Number). hét
+		<i class="fa-solid fa-circle-arrow-down"></i>
+	</a>		
+</h3>	
+<div id="week@(Model.Number)" class="collapse">
+	<ul>
+		@foreach (var list in Model.Lists)
+		{
+			@(await Html.PartialAsync("_SoftengList", list))
+		}
+	</ul>
+</div>

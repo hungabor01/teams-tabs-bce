@@ -1,0 +1,29 @@
+﻿@using TeamsTabsBCE.Domain.ViewModels.Softeng
+
+@model SoftengViewModel
+
+@{
+	ViewData["Title"] = "Softeng";
+}
+
+@section Styles {
+	<link href="~/css/Softeng/softeng.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/css/Softeng/tasks.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section Scripts {
+	<script src="~/js/Softeng/collapseArrow.js" asp-append-version="true"></script>
+	<script src="~/js/Softeng/tasks.js" asp-append-version="true"></script>
+	<script src="~/js/Softeng/conversation.js" asp-append-version="true"></script>
+}
+
+<div class="page">
+
+	<h1>@Model.Title</h1>
+
+	@foreach (var week in Model.Weeks)
+	{
+		@(await Html.PartialAsync("_SoftengWeek", week))
+	}
+
+</div>
